@@ -1,116 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aftab Ali | Unity Game Developer</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aftab Ali | Game Developer</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+<script>
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projects = document.querySelectorAll(".project-card");
+
+filterButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+
+        // active button
+        filterButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const filter = btn.dataset.filter;
+
+        projects.forEach(project => {
+            project.classList.remove("hide");
+
+            if (filter !== "all" && project.dataset.category !== filter) {
+                project.classList.add("hide");
+            }
+        });
+    });
+});
+</script>
+
 <body>
 
 <header class="hero">
-    <h1>Aftab Ali</h1>
-    <p>Senior Unity 3D / 2D Game Developer</p>
+    <div class="hero-content">
+        <h1>Aftab Ali</h1>
+        <p>Senior Unity 3D / 2D Game Developer</p>
+        <div class="hero-buttons">
+            <a href="#projects" class="btn">View Games</a>
+            <a href="mailto:aftab1631@gmail.com" class="btn-outline">Hire Me</a>
+        </div>
+    </div>
 </header>
 
 <section class="container">
 
-    <!-- Profile -->
-    <section class="card">
-        <h2>Profile</h2>
-        <p>
-            Results-driven Unity 3D Developer with 4+ years of experience
-            leading teams and delivering high-quality games. Specialized in
-            optimization, ads mediation, and multiplayer systems.
-        </p>
-    </section>
+<!-- About -->
+<section class="card glass">
+    <h2>About Me</h2>
+    <p>
+        Unity Game Developer with 5+ years of experience delivering
+        high-quality mobile games. Expert in performance optimization,
+        ads mediation, FPS/TPS mechanics, and multiplayer systems.
+    </p>
+</section>
 
-    <!-- Contact -->
-    <section class="card">
-        <h2>Contact</h2>
-        <ul class="contact">
-            <li><i class="fa fa-phone"></i> +92 312 6004249</li>
-            <li><i class="fa fa-envelope"></i> aftab1631@gmail.com</li>
-            <li><i class="fa-brands fa-linkedin"></i> 
-                <a href="https://www.linkedin.com/in/aftabali07" target="_blank">
-                    linkedin.com/in/aftabali07
-                </a>
-            </li>
-            <li><i class="fa fa-map-marker-alt"></i> Lahore, Pakistan</li>
-        </ul>
-    </section>
+<!-- Skills -->
+<section class="card glass">
+    <h2>Skills</h2>
+    <div class="skills">
+        <span>Unity 2D / 3D</span>
+        <span>C#</span>
+        <span>Multiplayer</span>
+        <span>VR Games</span>
+        <span>Ads Mediation</span>
+        <span>Optimization</span>
+        <span>Addressables</span>
+    </div>
+</section>
 
-    <!-- Skills -->
-    <section class="card">
-        <h2>Skills</h2>
-        <div class="skills">
-            <span>Unity 2D / 3D</span>
-            <span>VR Games</span>
-            <span>Ads Mediation</span>
-            <span>Game Optimization</span>
-            <span>Multiplayer</span>
-            <span>Addressables</span>
-            <span>Asset Bundles</span>
+<!-- Projects -->
+<section id="projects">
+    <h2 class="section-title">Games & Projects</h2>
+
+    <!-- FILTER BUTTONS -->
+    <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="simulator">Simulator</button>
+        <button class="filter-btn" data-filter="horror">Horror</button>
+        <button class="filter-btn" data-filter="casual">Casual</button>
+        <button class="filter-btn" data-filter="puzzle">Puzzle</button>
+    </div>
+
+    <!-- PROJECTS GRID -->
+    <div class="projects-grid">
+
+        <div class="project-card" data-category="simulator">
+            <img src="assets/yumi.jpg">
+            <div class="project-info">
+                <h3>YUMI High School Simulator</h3>
+                <p>Open-world anime simulation.</p>
+                <a href="#">Google Play</a>
+            </div>
         </div>
-    </section>
 
-    <!-- Experience -->
-    <section class="card">
-        <h2>Experience</h2>
+        <div class="project-card" data-category="horror">
+            <img src="assets/evil-teacher.jpg">
+            <div class="project-info">
+                <h3>Evil Teacher 3D</h3>
+                <p>Stealth horror survival.</p>
+                <a href="#">Google Play</a>
+            </div>
+        </div>
 
-        <h3>Zeroloft Gaming Studio — Lahore</h3>
-        <p class="date">Dec 2020 – Present</p>
-        <ul>
-            <li>Led a development team for immersive 2D/3D games</li>
-            <li>Integrated ads mediation & resolved ANR issues</li>
-            <li>Optimized performance, lighting & assets</li>
-            <li>Developed FPS/TPS mechanics and multiplayer systems</li>
-        </ul>
+        <div class="project-card" data-category="simulator">
+            <img src="assets/anime-mother.jpg">
+            <div class="project-info">
+                <h3>Anime Mother Twin Babies</h3>
+                <p>Family life simulator.</p>
+                <a href="#">Google Play</a>
+            </div>
+        </div>
 
-        <h3>Underground Gaming Studio — Lahore</h3>
-        <p class="date">Feb 2019 – Dec 2020</p>
-        <ul>
-            <li>Worked on multiple game genres</li>
-            <li>Improved gameplay mechanics & performance</li>
-        </ul>
+        <div class="project-card" data-category="puzzle">
+            <img src="assets/placeholder.jpg">
+            <div class="project-info">
+                <h3>Nut Sort</h3>
+                <p>Relaxing color puzzle game.</p>
+                <a href="#">Google Play</a>
+            </div>
+        </div>
 
-        <h3>NotionHub Games — Lahore</h3>
-        <p class="date">Nov 2018 – Jun 2019</p>
-        <ul>
-            <li>Game Development Internship</li>
-        </ul>
-    </section>
+        <div class="project-card" data-category="casual">
+            <img src="assets/placeholder.jpg">
+            <div class="project-info">
+                <h3>Punchy Guy</h3>
+                <p>Fast-paced casual action.</p>
+                <a href="#">Google Play</a>
+            </div>
+        </div>
 
-    <!-- Projects -->
-    <section class="card">
-        <h2>Projects</h2>
-        <ul>
-            <li>YUMI High School Simulator 3D</li>
-            <li>Anime Mother Twin Babies Life</li>
-            <li>Evil Teacher 3D Scary Game</li>
-            <li>Pregnant Mother Family Game 3D</li>
-            <li>Punchy Guy & Web Shooter</li>
-            <li>Nut Sort & Color Puzzle Games</li>
-        </ul>
-    </section>
+    </div>
+</section>
 
-    <!-- Education -->
-    <section class="card">
-        <h2>Education</h2>
-        <p>
-            <strong>Bachelor of Science in Software Engineering</strong><br>
-            Lahore Leads University, Lahore
-        </p>
-    </section>
 
-    <!-- Footer Quote -->
-    <footer class="footer">
-        <blockquote>
-            “The best preparation for tomorrow is doing your best today.”
-            <span>— H. Jackson Brown, Jr.</span>
-        </blockquote>
-    </footer>
+<!-- Contact -->
+<section class="card glass contact">
+    <h2>Contact</h2>
+    <p><i class="fa fa-envelope"></i> aftab1631@gmail.com</p>
+    <p><i class="fa fa-phone"></i> +92 312 6004249</p>
+    <p><i class="fa-brands fa-linkedin"></i>
+        <a href="https://linkedin.com/in/aftabali07" target="_blank">
+            linkedin.com/in/aftabali07
+        </a>
+    </p>
+</section>
+
+<footer>
+    <p>© 2026 Aftab Ali — Built with ❤️ for Game Development</p>
+</footer>
 
 </section>
 
