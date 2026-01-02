@@ -3,41 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aftab Ali | Game Developer</title>
+<title>Aftab Ali | Unity Game Developer</title>
 
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<script>
-const filterButtons = document.querySelectorAll(".filter-btn");
-const projects = document.querySelectorAll(".project-card");
-
-filterButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-
-        // active button
-        filterButtons.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-
-        const filter = btn.dataset.filter;
-
-        projects.forEach(project => {
-            project.classList.remove("hide");
-
-            if (filter !== "all" && project.dataset.category !== filter) {
-                project.classList.add("hide");
-            }
-        });
-    });
-});
-</script>
 
 <body>
 
 <header class="hero">
-    <div class="hero-content">
+    <div class="hero-content reveal">
         <h1>Aftab Ali</h1>
         <p>Senior Unity 3D / 2D Game Developer</p>
+
         <div class="hero-buttons">
             <a href="#projects" class="btn">View Games</a>
             <a href="mailto:aftab1631@gmail.com" class="btn-outline">Hire Me</a>
@@ -47,18 +25,18 @@ filterButtons.forEach(btn => {
 
 <section class="container">
 
-<!-- About -->
-<section class="card glass">
+<!-- ABOUT -->
+<section class="card glass reveal">
     <h2>About Me</h2>
     <p>
-        Unity Game Developer with 5+ years of experience delivering
-        high-quality mobile games. Expert in performance optimization,
-        ads mediation, FPS/TPS mechanics, and multiplayer systems.
+        Unity Game Developer with 5+ years of experience building
+        high-quality mobile games. Specialized in performance
+        optimization, ads mediation, FPS/TPS mechanics and multiplayer.
     </p>
 </section>
 
-<!-- Skills -->
-<section class="card glass">
+<!-- SKILLS -->
+<section class="card glass reveal">
     <h2>Skills</h2>
     <div class="skills">
         <span>Unity 2D / 3D</span>
@@ -71,12 +49,11 @@ filterButtons.forEach(btn => {
     </div>
 </section>
 
-<!-- Projects -->
+<!-- PROJECTS -->
 <section id="projects">
-    <h2 class="section-title">Games & Projects</h2>
+    <h2 class="section-title reveal">Games & Projects</h2>
 
-    <!-- FILTER BUTTONS -->
-    <div class="filter-buttons">
+    <div class="filter-buttons reveal">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="simulator">Simulator</button>
         <button class="filter-btn" data-filter="horror">Horror</button>
@@ -84,60 +61,58 @@ filterButtons.forEach(btn => {
         <button class="filter-btn" data-filter="puzzle">Puzzle</button>
     </div>
 
-    <!-- PROJECTS GRID -->
     <div class="projects-grid">
 
-        <div class="project-card" data-category="simulator">
+        <div class="project-card reveal" data-category="simulator">
             <img src="assets/yumi.jpg">
             <div class="project-info">
                 <h3>YUMI High School Simulator</h3>
                 <p>Open-world anime simulation.</p>
-                <a href="#">Google Play</a>
+                <a href="#" target="_blank">Google Play</a>
             </div>
         </div>
 
-        <div class="project-card" data-category="horror">
+        <div class="project-card reveal" data-category="horror">
             <img src="assets/evil-teacher.jpg">
             <div class="project-info">
                 <h3>Evil Teacher 3D</h3>
-                <p>Stealth horror survival.</p>
-                <a href="#">Google Play</a>
+                <p>Stealth horror survival game.</p>
+                <a href="#" target="_blank">Google Play</a>
             </div>
         </div>
 
-        <div class="project-card" data-category="simulator">
+        <div class="project-card reveal" data-category="simulator">
             <img src="assets/anime-mother.jpg">
             <div class="project-info">
                 <h3>Anime Mother Twin Babies</h3>
-                <p>Family life simulator.</p>
-                <a href="#">Google Play</a>
+                <p>Family life simulation.</p>
+                <a href="#" target="_blank">Google Play</a>
             </div>
         </div>
 
-        <div class="project-card" data-category="puzzle">
+        <div class="project-card reveal" data-category="puzzle">
             <img src="assets/placeholder.jpg">
             <div class="project-info">
                 <h3>Nut Sort</h3>
                 <p>Relaxing color puzzle game.</p>
-                <a href="#">Google Play</a>
+                <a href="#" target="_blank">Google Play</a>
             </div>
         </div>
 
-        <div class="project-card" data-category="casual">
+        <div class="project-card reveal" data-category="casual">
             <img src="assets/placeholder.jpg">
             <div class="project-info">
                 <h3>Punchy Guy</h3>
                 <p>Fast-paced casual action.</p>
-                <a href="#">Google Play</a>
+                <a href="#" target="_blank">Google Play</a>
             </div>
         </div>
 
     </div>
 </section>
 
-
-<!-- Contact -->
-<section class="card glass contact">
+<!-- CONTACT -->
+<section class="card glass reveal contact">
     <h2>Contact</h2>
     <p><i class="fa fa-envelope"></i> aftab1631@gmail.com</p>
     <p><i class="fa fa-phone"></i> +92 312 6004249</p>
@@ -148,11 +123,49 @@ filterButtons.forEach(btn => {
     </p>
 </section>
 
-<footer>
-    <p>© 2026 Aftab Ali — Built with ❤️ for Game Development</p>
+<footer class="reveal">
+    <p>© 2026 Aftab Ali — Game Developer Portfolio</p>
 </footer>
 
 </section>
+
+<!-- JS -->
+<script>
+/* FILTER */
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projects = document.querySelectorAll(".project-card");
+
+filterButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        filterButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const filter = btn.dataset.filter;
+        projects.forEach(project => {
+            project.classList.remove("hide");
+            if (filter !== "all" && project.dataset.category !== filter) {
+                project.classList.add("hide");
+            }
+        });
+    });
+});
+
+/* SCROLL REVEAL */
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll() {
+    reveals.forEach(el => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        const revealPoint = 120;
+        if (elementTop < windowHeight - revealPoint) {
+            el.classList.add("active");
+        }
+    });
+}
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+</script>
 
 </body>
 </html>
