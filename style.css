@@ -22,7 +22,7 @@ html {
 }
 
 body {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background: var(--dark);
     color: var(--light);
     overflow-x: hidden;
